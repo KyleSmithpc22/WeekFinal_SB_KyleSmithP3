@@ -1,4 +1,4 @@
-  -- customers DATA, 5 records minimum 
+  -- customers DATA
 
 INSERT INTO customers (name, address, phone) VALUES('Ashton_Barker', '9999_Notreal_Ln_ Concord_NH_11111', '111.222.3333');   
 
@@ -14,7 +14,7 @@ INSERT INTO customers (name, address, phone) VALUES('Tobias_Wilder', '1134_idk_R
 
   
 
--- locations DATA, 2 records minimum 
+-- locations DATA
 
 INSERT INTO locations (locationID, location_name) VALUES('1', 'Boston');   
 
@@ -22,7 +22,7 @@ INSERT INTO locations (locationID, location_name) VALUES('2', 'Concord');
 
   
 
--- games DATA, 4 records minimum 
+-- games DATA
 
 INSERT INTO games (locationID, copies, price, gTitle, console) VALUES(1, 0, '5509000', 'halo', 'Xbox');   
 
@@ -38,7 +38,7 @@ INSERT INTO games (locationID, copies, price, gTitle, console) VALUES(2, 0, '569
 
   
 
--- employees DATA, 3 records minimum 
+-- employees DATA
 
  
 
@@ -52,7 +52,7 @@ INSERT INTO employees (employeeID, locationID, name) VALUES('3', '1', ' Zac_Chap
 
   
 
--- transactions DATA, 3 records minimum 
+-- transactions DATA
 
 INSERT INTO transactions (vehicleID, customerID, employeeID, locationID, datestamp) VALUES('4',2, '4', '3',curdate()); 
 

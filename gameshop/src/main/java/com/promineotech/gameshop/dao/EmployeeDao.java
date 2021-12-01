@@ -24,10 +24,10 @@ public class EmployeeDao {
 
 		try (Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-				// create an employee statement using connection object
+				
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
 
-			// execute the employee query
+			
 			ResultSet rs = preparedStatement.executeQuery();
 			List<Employee> list = new ArrayList<>();
 			while (rs.next()) {
@@ -68,14 +68,14 @@ public class EmployeeDao {
             
     }
     
-    //update
+    
 
 	public void updateEmployee(int employeeID, String name, int locationID) {
 		final String sql = "update employees set name = ?, locationID = ? where employeeID = ?;";
 
 		try (Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-				// create an employee statement using connection object
+				
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
 			preparedStatement.setInt(3, employeeID);
 			preparedStatement.setString(1, name);

@@ -27,12 +27,12 @@ public class TransactionDao {
             try (
                     Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                    // create a statement using connection object
+                    
                         PreparedStatement preparedStatement = connection.prepareStatement(getTransaction);
                         
                 ) {
                     preparedStatement.setInt(1, transactionID);
-                // execute the car query
+                
                 ResultSet rs = preparedStatement.executeQuery();
                 List<Transaction> list = new ArrayList<>();
                 while (rs.next()) {
@@ -59,24 +59,24 @@ public class TransactionDao {
             final String updateTransaction = "INSERT into transactions (gameID, customerID, employeeID, locationID, datestamp)" +
                 "Values (?, ?, ?, ?, curdate());";
     
-            // establish a connection
+            
     
             try (
                 Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
     
-                    // create a car statement using connection object
+                    
                     PreparedStatement preparedStatement = connection.prepareStatement(updateTransaction)) {
                         preparedStatement.setInt(1, gameID);
                         preparedStatement.setInt(2, customerID);
                         preparedStatement.setInt(3, employeeID);
                         preparedStatement.setInt(4, locationID);
     
-                // execute query or update query
+                
     
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
     
-                // print SQLException info
+                
                 printSQLException(e);
             }
         }
@@ -87,12 +87,12 @@ public class TransactionDao {
              
             final String updateTransaction = "update transactions set gameID = ?, customerID = ? , employeeID = ?, locationID = ?, datestamp = ? where transactionID = ?;";
     
-            // establish a connection
+            
     
             try (
                 Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
     
-                    // create a car statement using connection object
+                    
                     PreparedStatement preparedStatement = connection.prepareStatement(updateTransaction)) {
                         preparedStatement.setInt(1, gameID);
                         preparedStatement.setInt(2, customerID);
@@ -101,12 +101,12 @@ public class TransactionDao {
                         preparedStatement.setString(5, date);
                         preparedStatement.setInt(6, transactionID);
     
-                // execute query or update query
+                
     
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
     
-                // print SQLException info
+                
                 printSQLException(e);
             }
         }
@@ -118,12 +118,12 @@ public class TransactionDao {
             try (
                     Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                    // create a statement using connection object
+                    
                         PreparedStatement preparedStatement = connection.prepareStatement(getTransaction);
                         
                 ) {
                     preparedStatement.setInt(1, transactionID);
-                // execute the car query
+                
                 int result = preparedStatement.executeUpdate();
                 System.out.println("Number of customer records affected :: " + result);
             } catch (SQLException e) {

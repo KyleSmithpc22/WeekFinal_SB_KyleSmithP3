@@ -97,7 +97,7 @@ public class CustomerDao {
             
     }
 
-	// Delete Operation for Customers Table
+	
     
     public void deleteCustomer(int customerID) {
         final String sql = "delete from customers where customerID = ?;";
@@ -105,13 +105,13 @@ public class CustomerDao {
         try (
 			Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-				// create a customer delete statement using connection object
+				
 				PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ) {
 
                 preparedStatement.setInt(1, customerID);
 
-			    // execute the car query
+			    
 			    preparedStatement.executeUpdate();
             
         } catch (SQLException e) {

@@ -47,7 +47,7 @@ public interface GameshopController {
         @RequestParam(required = true) String phone);
 
 
-    // Delete operation on customers table
+    
     @DeleteMapping("Customers")
     @ResponseStatus(code = HttpStatus.OK)
     void deleteCustomer(

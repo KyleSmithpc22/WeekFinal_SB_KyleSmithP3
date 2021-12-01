@@ -28,12 +28,12 @@ public class LocationDao {
         try (
             Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                // create a statement using connection object
+                
                     PreparedStatement preparedStatement = connection.prepareStatement(getLocation);
                     
             ) {
                 preparedStatement.setInt(1, locationID);
-            // execute the location query
+            
             ResultSet rs = preparedStatement.executeQuery();
             List<Location> list = new ArrayList<>();
             while (rs.next()) {
@@ -55,22 +55,22 @@ public class LocationDao {
          
         final String updateTransaction = "INSERT into locations (location_name) Values (?);";
 
-        // establish a connection
+        
 
         try (
             Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                // create a car statement using connection object
+                
                 PreparedStatement preparedStatement = connection.prepareStatement(updateTransaction)) {
                     preparedStatement.setString(1, locationName);
 
 
-            // execute query or update query
+            
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
 
-            // print SQLException info
+            
             printSQLException(e);
         }
     }
@@ -80,23 +80,23 @@ public class LocationDao {
          
         final String updateLocation = "update locations set location_name = ? where locationID = ?;";
 
-        // establish a connection
+        
 
         try (
             Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                // create a car statement using connection object
+                
                 PreparedStatement preparedStatement = connection.prepareStatement(updateLocation)) {
                     preparedStatement.setInt(2, locationID);
                     preparedStatement.setString(1, locationName);
                 
 
-            // execute query or update query
+            
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
 
-            // print SQLException info
+            
             printSQLException(e);
         }
     }
@@ -108,12 +108,12 @@ public class LocationDao {
         try (
             Connection connection = DriverManager.getConnection(HOSTNAME, USERNAME, PASSWORD);
 
-                // create a statement using connection object
+                
                     PreparedStatement preparedStatement = connection.prepareStatement(getTransaction);
                     
             ) {
                 preparedStatement.setInt(1, locationID);
-            // execute the location query
+            
             int result = preparedStatement.executeUpdate();
             System.out.println("Number of location records affected :: " + result);
         } catch (SQLException e) {
